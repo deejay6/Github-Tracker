@@ -37,6 +37,7 @@ def api_call():
             f.writerow(["Name : " + user[i][0] + ", " + "\n Repo : " + user[i][1] +
                         ",\n Contributor : " + str(contributor) + ",\n Week : " + str(week) +
                         ",\n Total Number of Commits : " + str(item['total']) + "\n"])
+    exit()
 
 
 def validate_before_add():
