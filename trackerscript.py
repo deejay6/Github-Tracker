@@ -21,24 +21,27 @@ def api_call():
         data = requests.get(request_url).json()
         with open('repo_data.json', 'w') as outfile:
             json.dump(data, outfile)
+    exit()
 
-        f = open('repo_data.json')
-        data = json.load(f)
-        f.close()
-        f = csv.writer(open('output.csv', 'a'))
+def add_to_output():
 
-        for item in data:
-            week = datetime.datetime.fromtimestamp(
-                int(item['weeks'][-1]['w'])
-            ).strftime('%Y-%m-%d')
+    f = open('repo_data.json')
+    data = json.load(f)
+    f.close()
+    f = csv.writer(open('output.csv', 'a'))
 
-            contributor = item['author']['login']
+    for item in data:
+        week = datetime.datetime.fromtimestamp(
+            int(item['weeks'][-1]['w'])
+        ).strftime('%Y-%m-%d')
 
-            commits = item['weeks'][-1]['c']
+        contributor = item['author']['login']
 
-            f.writerow(["Name : " + user[i][0] + ", " + "\n Repo : " + user[i][1] +
-                        ",\n Contributor : " + str(contributor) + ",\n Week : " + str(week) +
-                        ",\n Numeber of Commits : " + str(commits) + "\n"])
+        commits = item['weeks'][-1]['c']
+
+        f.writerow(["Name : " + user[i][0] + ", " + "\n Repo : " + user[i][1] +
+                    ",\n Contributor : " + str(contributor) + ",\n Week : " + str(week) +
+                    ",\n Numeber of Commits : " + str(commits) + "\n"])
     exit()
 
 
@@ -50,6 +53,7 @@ def validate_before_add():
         else:
             print "pseudo Append script"
             api_call()
+            add_to_output()
 
 new_username = raw_input("Enter username to add : ")
 new_repo = raw_input("Enter repo to be linked : ")
