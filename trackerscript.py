@@ -31,7 +31,6 @@ for i in range(0, z):
 
         contributor = item['author']['login']
 
-        f.writerow(["Name : " + user[i][0] + ", " + "\nRepo : " + user[i][1] +
-                    ",\nContributor : " + str(contributor) + ",\nWeek : " + str(week) +
-                    ",\nTotal Number of Commits : " + str(item['total'])])
-        f.writerow('\n')
+        f.writerow(["Name : " + user[i][0] + ", " + "\n Repo : " + user[i][1] +
+                    ",\n Contributor : " + str(contributor) + ",\n Week : " + str(week) +
+                    ",\n Total Number of Commits : " + str(item['total']) + "\n"])
