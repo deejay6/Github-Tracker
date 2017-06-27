@@ -29,7 +29,8 @@ for i in range(0, z):
                 int(item['weeks'][-1]['w'])
             ).strftime('%d-%m-%Y %H:%M:%S')
 
+        contributor = item['author']['login']
 
-        f.writerow([user[i][0] + " " + user[i][1] + " Week : " + str(week) + ", Total Number of Commits : "
-                    + str(item['total'])])
+        f.writerow([user[i][0] + ", " + user[i][1] + ", Week : " + str(week) + ", Total Number of Commits : "
+                    + str(item['total']) + ", Contributor : " + str(contributor)])
         f.writerow("\n")
