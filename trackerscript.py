@@ -3,7 +3,18 @@ import json
 import csv
 
 BASE_URL = "https://api.github.com"
+Username = raw_input("What is your Github Username? : ")
+Repo = raw_input("Repository Name : ")
 
+for line in Username.csv:
+    if Username and Repo in line:
+        #do something
+    elif Repo not in line:
+        # append username and repo
+    else:
+        #append username and repo both
+
+## one file for username.csv and repo.csv
 with open('username.csv', 'rb') as f:
     reader = csv.reader(f)
     username = list(reader)
