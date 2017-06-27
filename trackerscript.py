@@ -1,6 +1,8 @@
 import requests
 import json
 import csv
+import datetime
+
 
 base_url = "https://api.github.com"
 
@@ -24,5 +26,6 @@ for i in range(0, z):
     f = csv.writer(open('output.csv', 'a'))
 
     for item in data:
-        f.writerow([user[i][0], user[i][1], item['weeks'], item['total']])
+
+        f.writerow([user[i][0], " ", user[i][1]," Week : ", item['weeks'][-1]['w']," Total Number of Commits : ", item['total']])
         f.writerow("\n")
