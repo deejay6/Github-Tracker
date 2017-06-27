@@ -24,36 +24,40 @@ def api_call():
     exit()
 
 def add_to_output():
+    for i in range(0, z):
+        f = open('repo_data.json')
+        data = json.load(f)
+        f.close()
+        f = csv.writer(open('output.csv', 'a'))
 
-    f = open('repo_data.json')
-    data = json.load(f)
-    f.close()
-    f = csv.writer(open('output.csv', 'a'))
+        for item in data:
+            week = datetime.datetime.fromtimestamp(
+                int(item['weeks'][-1]['w'])
+            ).strftime('%Y-%m-%d')
 
-    for item in data:
-        week = datetime.datetime.fromtimestamp(
-            int(item['weeks'][-1]['w'])
-        ).strftime('%Y-%m-%d')
+            contributor = item['author']['login']
 
-        contributor = item['author']['login']
+            commits = item['weeks'][-1]['c']
 
-        commits = item['weeks'][-1]['c']
-
-        f.writerow(["Name : " + user[i][0] + ", " + "\n Repo : " + user[i][1] +
-                    ",\n Contributor : " + str(contributor) + ",\n Week : " + str(week) +
-                    ",\n Numeber of Commits : " + str(commits) + "\n"])
+            f.writerow(["Name : " + user[i][0] + ", " + "\n Repo : " + user[i][1] +
+                        ",\n Contributor : " + str(contributor) + ",\n Week : " + str(week) +
+                        ",\n Numeber of Commits : " + str(commits) + "\n"])
     exit()
 
 
 def validate_before_add():
     for j in range(0, z):
-        if new_username == user[j][0] and new_repo == user[j][1]:
-            print "Already exists, falling back !"
-            api_call()
+        if new_username == user[j][0]:
+            if new_repo == user[j][1]:
+                print user[j][0]
+                print "Already exists, falling back !"
+                api_call()
+            else:
+                print "pseudo Append script"
+                api_call()
+                add_to_output()
         else:
-            print "pseudo Append script"
-            api_call()
-            add_to_output()
+            print "Failed"
 
 new_username = raw_input("Enter username to add : ")
 new_repo = raw_input("Enter repo to be linked : ")
