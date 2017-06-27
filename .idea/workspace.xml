@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5b01954-3b7d-4820-9e8e-dfb25b37c417" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database.csv" afterPath="$PROJECT_DIR$/database.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output.csv" afterPath="$PROJECT_DIR$/output.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/repo_data.json" afterPath="$PROJECT_DIR$/repo_data.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trackerscript.py" afterPath="$PROJECT_DIR$/trackerscript.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,8 +39,8 @@
       <file leaf-file-name="trackerscript.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/trackerscript.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="21" lean-forward="true" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+            <state relative-caret-position="268">
+              <caret line="27" column="22" lean-forward="true" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -97,8 +93,8 @@
         <option value="$PROJECT_DIR$/revamp.py" />
         <option value="$PROJECT_DIR$/database.csv" />
         <option value="$PROJECT_DIR$/repo_data.json" />
-        <option value="$PROJECT_DIR$/trackerscript.py" />
         <option value="$PROJECT_DIR$/output.csv" />
+        <option value="$PROJECT_DIR$/trackerscript.py" />
       </list>
     </option>
   </component>
@@ -516,8 +512,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/trackerscript.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="21" lean-forward="true" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+        <state relative-caret-position="268">
+          <caret line="27" column="22" lean-forward="true" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>

@@ -25,3 +25,4 @@ for i in range(0, z):
 
     for item in data:
         f.writerow([user[i][0], user[i][1], item['weeks'], item['total']])
+        f.writerow(\n)
