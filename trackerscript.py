@@ -27,10 +27,10 @@ for i in range(0, z):
     for item in data:
         week = datetime.datetime.fromtimestamp(
                 int(item['weeks'][-1]['w'])
-            ).strftime('%d-%m-%Y %H:%M:%S')
+            ).strftime('%Y-%m-%d')
 
         contributor = item['author']['login']
 
-        f.writerow([user[i][0] + ", " + user[i][1] + ", Week : " + str(week) + ", Total Number of Commits : "
-                    + str(item['total']) + ", Contributor : " + str(contributor)])
-        f.writerow("\n")
+        f.writerow(["Name : " + user[i][0] + ", " + "Repo : " + user[i][1] + ", Week : " + str(week) +
+                    ", Total Number of Commits : " + str(item['total']) + ", Contributor : " + str(contributor)])
+        f.writerow('\n')
