@@ -3,7 +3,6 @@ import json
 import csv
 import datetime
 
-
 base_url = "https://api.github.com"
 
 with open('database.csv', 'rb') as f:
@@ -26,6 +25,12 @@ for i in range(0, z):
     f = csv.writer(open('output.csv', 'a'))
 
     for item in data:
+        print(
+            datetime.datetime.fromtimestamp(
+                int(item['weeks'][-1]['w'])
+            ).strftime('%Y-%m-%d %H:%M:%S')
+        )
 
-        f.writerow([user[i][0], " ", user[i][1]," Week : ", item['weeks'][-1]['w']," Total Number of Commits : ", item['total']])
+        f.writerow([user[i][0] + " " + user[i][1] + " Week : " + str(item['weeks'][-1]['w']) + " Total Number of Commits : "
+                    + str(item['total'])])
         f.writerow("\n")
