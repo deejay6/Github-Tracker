@@ -21,7 +21,9 @@ def api_call():
         data = requests.get(request_url).json()
         with open('repo_data.json', 'w') as outfile:
             json.dump(data, outfile)
+    add_to_output()
     exit()
+
 
 def add_to_output():
     for i in range(0, z):
@@ -41,7 +43,7 @@ def add_to_output():
 
             f.writerow(["Name : " + user[i][0] + ", " + "\n Repo : " + user[i][1] +
                         ",\n Contributor : " + str(contributor) + ",\n Week : " + str(week) +
-                        ",\n Numeber of Commits : " + str(commits) + "\n"])
+                        ",\n Number of Commits : " + str(commits) + "\n"])
     exit()
 
 
@@ -59,12 +61,7 @@ def validate_before_add():
         else:
             print "Failed"
 
-<<<<<<< HEAD
+
 new_username = raw_input("Enter username to add : ")
 new_repo = raw_input("Enter repo to be linked : ")
 validate_before_add()
-=======
-        f.writerow(["Name : " + user[i][0] + ", " + "\n Repo : " + user[i][1] +
-                    ",\n Contributor : " + str(contributor) + ",\n Week : " + str(week) +
-                    ",\n Total Number of Commits : " + str(item['total']) + "\n"])
->>>>>>> da231b2... Fixed: Inverted Commas.
