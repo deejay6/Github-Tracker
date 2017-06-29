@@ -48,10 +48,14 @@ def add_to_output():
     exit()
 
 
-def validate_before_add():
-    f = open("output.csv", "w")     # and open("comparator.csv", "w")
+def clear_files():
+    f = open("output.csv", "w")  # clear current output.csv
     f.truncate()
     f.close()
+
+
+def validate_before_add():
+    clear_files()
     for j in range(0, z):
         if new_username == user[j][0]:
             if new_repo == user[j][1]:
