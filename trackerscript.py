@@ -34,10 +34,13 @@ def api_call():
 
             contributor = item['author']['login']
             commits = item['weeks'][-1]['c']
+            add = item['weeks'][-1]['a']
+            delete = item['weeks'][-1]['d']
 
             f.writerow(["Name : " + user[i][0] + ", " + "\n Repo : " + user[i][1] +
                         ",\n Contributor : " + str(contributor) + ",\n Week : " + str(week) +
-                        ",\n Total Number of Commits : " + str(commits)])
+                        ",\n Total Number of Commits : " + str(commits) + "\n Lines added : " + str(add)
+                        + "\n Lines deleted : " + str(delete)])
             f.writerow([])
 
 
