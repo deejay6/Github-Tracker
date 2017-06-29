@@ -55,19 +55,18 @@ def clear_files():
 
 
 def validate_before_add():
-    clear_files()
+    flag = 0
     for j in range(0, z):
-        if new_username == user[j][0]:
-            if new_repo == user[j][1]:
-                print user[j][0]
-                print "Already exists, falling back !"
-                api_call()
-            else:
-                print "pseudo Append script"
-                api_call()
-                add_to_output()
-        else:
-            print "Failed"
+        if new_username == user[j][0] and new_repo == user[j][1]:
+            print user[j][0]
+            print "Already exists, falling back !"
+            api_call()
+            flag = 1
+            break
+    if flag == 0:
+        print "pseudo Append script"
+        api_call()
+        add_to_output()
 
 
 new_username = raw_input("Enter username to add : ")
