@@ -11,12 +11,17 @@ with open('database.csv', 'rb') as f:
 print user
 
 z = len(user)
+date = datetime.datetime.now()
+name = date.strftime("%d-%m-%Y")
+
 print z
 
 
 def api_call():
     for i in range(0, z):
-        request_url = (base_url + '/repos/%s/%s/stats/contributors?client_id=6ffcb5c447f054babff3&client_secret=6b889df62e3474104a6b23d949c0c55f86a8e50a') % (user[i][0], user[i][1])
+        request_url = (base_url + '/repos/%s/%s/stats/contributors?'
+                                  'client_id=6ffcb5c447f054babff3&client_secret='
+                                  '6b889df62e3474104a6b23d949c0c55f86a8e50a') % (user[i][0], user[i][1])
         print 'GET request url : %s' % request_url
         data = requests.get(request_url).json()
         with open('repo_data.json', 'w') as outfile:
@@ -25,7 +30,7 @@ def api_call():
         f = open('repo_data.json')
         data = json.load(f)
         f.close()
-        f = csv.writer(open('output.csv', 'a'))
+        f = csv.writer(open(name + '.csv', 'a'))
 
         for item in data:
             week = datetime.datetime.fromtimestamp(
