@@ -22,7 +22,7 @@ def api_call():
         with open('repo_data.json', 'w') as outfile:
             json.dump(data, outfile)
     add_to_output()
-    exit()
+    # exit() >> review
 
 
 def add_to_output():
@@ -44,10 +44,14 @@ def add_to_output():
             f.writerow(["Name : " + user[i][0] + ", " + "\n Repo : " + user[i][1] +
                         ",\n Contributor : " + str(contributor) + ",\n Week : " + str(week) +
                         ",\n Number of Commits : " + str(commits) + "\n"])
+
     exit()
 
 
 def validate_before_add():
+    f = open("output.csv", "w")     # and open("comparator.csv", "w")
+    f.truncate()
+    f.close()
     for j in range(0, z):
         if new_username == user[j][0]:
             if new_repo == user[j][1]:
