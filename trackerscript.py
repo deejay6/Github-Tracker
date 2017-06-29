@@ -15,7 +15,7 @@ date = datetime.datetime.now()
 name = date.strftime("%d-%m-%Y")
 
 print z
-
+s = []
 
 def api_call():
     for i in range(0, z):
@@ -42,15 +42,21 @@ def api_call():
             add = item['weeks'][-1]['a']
             delete = item['weeks'][-1]['d']
 
-            f.writerow(["Name : " + user[i][0] + ", " + "\n Repo : " + user[i][1] +
-                        ",\n Contributor : " + str(contributor) + ",\n Week : " + str(week) +
-                        ",\n Total Number of Commits : " + str(commits) + "\n Lines added : " + str(add)
-                        + "\n Lines deleted : " + str(delete)])
-            f.writerow([])
+            f.writerow([user[i][0], user[i][1], str(contributor), str(week), str(commits), str(add), str(delete)])
+    with open('combined_file1.csv', 'wb') as outcsv:
+        writer = csv.DictWriter(outcsv, fieldnames=['Name', 'Repo', 'Contributor', 'Week', 'Number Of Commits', 'Number Of Lines Added', 'Number Of Lines Delted'], delimiter=' ')
+        writer.writeheader()
+        with open(name + ".csv", 'rb') as incsv:
+            reader = csv.reader(incsv)
+            for i in reader:
+                s.append(i)
+        print s
+        for i in range(0, len(s)):
+            writer.writerow({'Name': s[i][0], 'Repo': s[i][1], 'Contributor': s[i][2], 'Week': s[i][3], 'Number Of Commits': s[i][4],'Number Of Lines Added': s[i][5],'Number Of Lines Delted' :s[i][6]})
 
 
 def clear_files():
-    f = open("output.csv", "w")  # clear current output.csv
+    f = open(name + ".csv", "w")  # clear current output.csv
     f.truncate()
     f.close()
 
