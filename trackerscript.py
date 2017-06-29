@@ -3,6 +3,8 @@ import json
 import csv
 import datetime
 
+fields = []
+
 base_url = "https://api.github.com"
 
 with open('database.csv', 'rb') as f:
@@ -15,8 +17,12 @@ print z
 
 
 def api_call():
-    for i in range(0, z):
-        request_url = (base_url + '/repos/%s/%s/stats/contributors') % (user[i][0], user[i][1])
+    with open('database.csv', 'rb') as f:
+        read_data = csv.reader(f)
+        used = list(read_data)
+        x = len(used)
+    for i in range(0, x):
+        request_url = (base_url + '/repos/%s/%s/stats/contributors') % (used[i][0], used[i][1])
         print 'GET request url : %s' % request_url
         data = requests.get(request_url).json()
         with open('repo_data.json', 'w') as outfile:
@@ -54,19 +60,26 @@ def clear_files():
     f.close()
 
 
+def append_data():
+    with open('database.csv', 'a') as f0:
+        writer = csv.writer(f0)
+        writer.writerow([])
+        writer.writerow(fields)
+    api_call()
+
+
 def validate_before_add():
     flag = 0
     for j in range(0, z):
         if new_username == user[j][0] and new_repo == user[j][1]:
-            print user[j][0]
-            print "Already exists, falling back !"
+            print "User : " + user[j][0] + " ,and repo :" + user[j][1] + " ,already exists, falling back !"
             api_call()
             flag = 1
             break
     if flag == 0:
-        print "pseudo Append script"
-        api_call()
-        add_to_output()
+        fields.append(new_username)
+        fields.append(new_repo)
+        append_data()
 
 
 new_username = raw_input("Enter username to add : ")
